@@ -15,18 +15,20 @@ CURR_USER_KEY = "curr_user"
 
 app = Flask(__name__)
 
+connect_db(app)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = (
     os.environ.get('DATABASE_URL', 'postgresql:///pokepets'))
 
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_ECHO'] = True
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# app.config['SQLALCHEMY_ECHO'] = True
 
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', "password")
 
 debug = DebugToolbarExtension(app)
 
-connect_db(app)
+
 
 
 BASE_URL = 'https://pokeapi.co/api/v2/pokemon/'
