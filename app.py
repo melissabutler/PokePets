@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask, render_template, redirect, flash, session, g
-import requests, random
+import random
 from sqlalchemy.exc import IntegrityError, PendingRollbackError
 
 from flask_debugtoolbar import DebugToolbarExtension
