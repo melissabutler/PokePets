@@ -16,7 +16,7 @@ CURR_USER_KEY = "curr_user"
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = (
-    os.environ.get('DATABASE_URL', 'postgresql://pokepets_user:O6pcdjMPoSFmEbeI4skzqP5nd8ejCggg@dpg-cnu766ljm4es73cog0p0-a.oregon-postgres.render.com/pokepets'))
+    os.environ.get('DATABASE_URL', 'postgresql:///pokepets'))
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
