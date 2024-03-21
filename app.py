@@ -56,6 +56,16 @@ def do_logout():
 def not_found(e):
     return render_template("404.html")
 
+if len(Berry.query.all()) == 0:
+    create_berry_db(db, berries)
+
+if len(Pokemon.query.all()) == 0:
+    create_pokemon_db(150, db)
+
+if len(Type.query.all()) == 0:
+    create_type_db(db, types)
+
+
 
 ############# SETUP ROUTES, login/logout/signup ##########################
     
