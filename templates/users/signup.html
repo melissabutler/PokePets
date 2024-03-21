@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <form  method="POST" id="user_form">
+            <form method="POST" id="user_form">
                 {{ form.hidden_tag() }}
                 {% for field in form if field.widget.input_type != 'hidden' %}
                 {% for error in field.errors %}
@@ -12,7 +12,7 @@
                 {% endfor %}
                 {{field(placeholder = field.label.text, class="form-control")}}
                 {% endfor %}
-                <button class="btn btn-primary btn-lg">Sign me up!</button>
+                <button class="btn btn-primary btn-lg" formmethod="POST">Sign me up!</button>
             </form>
         </div>
     </div>
