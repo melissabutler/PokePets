@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}{{user.username}}{% endblock %}
+
+{% block content %}
+{% if g.user == user %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col" id="username">
+            <h1 class="section-title">Hi {{user.username}}!</h1>
+        </div>
+    </div>
+</div>
+
+<div>
+    <form>
+    <button class="btn btn-primary" formaction="{{ url_for('edit_user')}}" formmethod="GET">Edit User</button>
+    <button class="btn btn-danger" formaction="{{ url_for('delete_user')}}" formethod="GET">Delete User</button>
+    </form>
+</div>
+{% endif %}
+
+{% endblock %}

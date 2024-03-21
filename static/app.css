@@ -1,0 +1,206 @@
+html {
+    text-align: center;
+    align-items: center;
+}
+a:link {
+    text-decoration: none;
+    color: black;
+}
+.navbar {
+    background-color: rgb(32, 152, 222);
+    height: 80px;
+    /* font-weight: bold; */
+    color: black;
+    text-transform: uppercase;
+    border-bottom: solid black;
+
+}
+.navbar a {
+    color: black;
+    padding: 10px;
+}
+.container-fluid {
+    align-items: center;
+    text-align: center;
+    margin: auto;
+}
+.row {
+    text-align: center;
+    margin: auto;
+}
+
+
+/* PET STYLING */
+#pet-card{
+    background: linear-gradient(180deg, rgba(255,240,120,1) 0%, rgba(255,194,50,1) 90%, rgba(255,240,120,1) 100%);
+    padding: 20px;
+    margin: 20px;
+    border-style: solid;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 5px 5px 5px rgb(86, 86, 156);
+}
+
+#pet-profile a {
+    text-decoration: none;
+}
+
+#pet-profile a:link{
+    color: black;
+}
+#pet-info {
+    text-align: left;
+}
+.pet-buttons {
+    padding: 20px;
+}
+
+.poke-img {
+    max-width: 250px;
+    
+}
+.progress {
+    border: solid;
+}
+/* TYPE STYLING */
+.type {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 15px auto 15px auto;
+    border-radius: 20px;
+    border: solid black;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: white;
+}
+.bug {
+    background: rgba(109,182,0,1);
+    background: linear-gradient(180deg, rgba(215,255,91,1) 0%, rgba(109,182,0,1) 45%, rgba(215,255,91,1) 100%);
+}
+.dark {
+    background: rgba(20,5,5,1);
+    background:  linear-gradient(180deg, rgba(88,51,51,1) 0%, rgba(20,5,5,1) 45%, rgba(88,51,51,1) 100%);
+}
+.dragon {
+    background: linear-gradient(180deg, rgba(183,148,255,1) 0%, rgba(114,47,255,1) 45%, rgba(183,148,255,1) 100%);
+}
+.electric {
+    background: linear-gradient(180deg, rgba(255,231,68,1) 0%, rgba(255,185,47,1) 45%, rgba(255,231,68,1) 100%);
+}
+.fairy {
+    background: rgb(251,229,255);
+background: linear-gradient(180deg, rgba(251,229,255,1) 0%, rgba(242,154,255,1) 45%, rgba(251,229,255,1) 100%);
+}
+.fighting {
+    background: linear-gradient(180deg, rgba(189,114,81,1) 0%, rgba(111,36,6,1) 45%, rgba(189,114,81,1) 100%);
+}
+.fire {
+    background: linear-gradient(180deg, rgba(255,151,33,1) 0%, rgba(255,49,0,1) 45%, rgba(255,151,33,1) 100%);
+}
+.flying {
+    background: linear-gradient(180deg, rgba(202,215,255,1) 0%, rgba(109,142,255,1) 45%, rgba(202,215,255,1) 100%);
+}
+.ghost {
+    background:  linear-gradient(180deg, rgba(130,120,200,1) 0%, rgba(77,55,187,1) 45%, rgba(130,120,200,1) 100%);
+}
+.grass {
+    background: rgba(0.182,56,1);
+    background: linear-gradient(180deg, rgba(32,255,8,1) 0%, rgba(0,182,56,1) 45%, rgba(32,255,8,1) 100%);
+}
+.ground {
+    background: linear-gradient(180deg, rgba(236,207,150,1) 0%, rgba(184,154,95,1) 45%, rgba(236,207,150,1) 100%);
+}
+.ice {
+    background: linear-gradient(180deg, rgba(174,250,255,1) 0%, rgba(76,215,255,1) 45%, rgba(174,250,255,1) 100%);
+}
+.normal {
+    background:  linear-gradient(180deg, rgba(224,224,224,1) 0%, rgba(190,190,190,1) 45%, rgba(224,224,224,1) 100%);
+}
+.poison {
+    background: rgb(226,69,255);
+background: linear-gradient(180deg, rgba(226,69,255,1) 0%, rgba(138,0,158,1) 45%, rgba(226,69,255,1) 100%);
+}
+.psychic {
+    background: linear-gradient(180deg, rgba(255,163,230,1) 0%, rgba(255,32,143,1) 45%, rgba(255,163,230,1) 100%);
+}
+.rock {
+    background: linear-gradient(180deg, rgba(200,178,145,1) 0%, rgba(119,104,81,1) 45%, rgba(200,178,145,1) 100%);
+}
+.water {
+    background: rgb(158,199,255);
+    background: linear-gradient(180deg, rgba(158,199,255,1) 0%, rgba(19,145,255,1) 45%, rgba(158,199,255,1) 100%);
+}
+
+
+/* BERRY STYLING */
+.inventory {
+    margin: auto;
+    align-items: center;
+    text-align: center;
+}
+
+.berry-icon {
+    padding: 20px;
+    margin: 10px;
+    width: 200px;
+    border-style: solid;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgb(86, 86, 156);
+
+}
+.berry-card {
+    padding: 20px; 
+    margin: 20px;
+    border-style: solid;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 5px 5px 5px rgb(86, 86, 156);
+
+}
+
+.berry {
+    height: 100px;
+}
+
+/* WEBPAGE STYLING  */
+#wrapper {
+    width: 100%;
+    height: 200px;
+    /* background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a640fb77-c13a-4954-9e75-544a94744b5c/db2eggh-d89cc026-e1c4-4d4d-a7a5-1257f55931ce.png/v1/fit/w_512,h_256,q_70,strp/forest_background_by_bizmasterstudios_db2eggh-375w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjU2IiwicGF0aCI6IlwvZlwvYTY0MGZiNzctYzEzYS00OTU0LTllNzUtNTQ0YTk0NzQ0YjVjXC9kYjJlZ2doLWQ4OWNjMDI2LWUxYzQtNGQ0ZC1hN2E1LTEyNTdmNTU5MzFjZS5wbmciLCJ3aWR0aCI6Ijw9NTEyIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.W6aj9g0mDPicix4M8Pgudk_ly6vJ2mF4phuiG_4gVeo") */
+    background-image: url("https://cdna.artstation.com/p/assets/images/images/011/418/998/large/nauris-amatnieks-forestbattlebackground.jpg?1529487490")
+}
+
+.section-title {
+    background: linear-gradient(180deg, rgba(255,231,120,1) 0%, rgba(255,128,8,1) 90%, rgba(255,240,120,1) 100%);
+    padding: 10px;
+    margin: 15px auto 15px auto;
+    border-radius: 10px;
+    border-style: solid;
+    box-shadow: 5px 5px 5px rgb(86, 86, 156);
+}
+
+.btn {
+
+    margin: 10px;
+}
+#adopt_form {
+    width: 50%;
+    margin: auto;
+}
+
+.home-img{
+    width: 300px;
+    height: auto
+}
+.ERROR {
+    background:rgba(255, 0, 0, 0.3);
+}
+
+.alert .SUCCESS {
+    background: rgba(8, 177, 8, 0.3);
+}
+
+.unknown {
+    filter: brightness(0%)
+}

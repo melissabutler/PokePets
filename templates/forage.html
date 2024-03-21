@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block wrapper %}
+<div id="wrapper">
+    <!-- <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a640fb77-c13a-4954-9e75-544a94744b5c/db2eggh-d89cc026-e1c4-4d4d-a7a5-1257f55931ce.png/v1/fit/w_512,h_256,q_70,strp/forest_background_by_bizmasterstudios_db2eggh-375w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjU2IiwicGF0aCI6IlwvZlwvYTY0MGZiNzctYzEzYS00OTU0LTllNzUtNTQ0YTk0NzQ0YjVjXC9kYjJlZ2doLWQ4OWNjMDI2LWUxYzQtNGQ0ZC1hN2E1LTEyNTdmNTU5MzFjZS5wbmciLCJ3aWR0aCI6Ijw9NTEyIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.W6aj9g0mDPicix4M8Pgudk_ly6vJ2mF4phuiG_4gVeo"> -->
+    </div>   
+{% endblock %}
+{% block content %}
+
+<div class="container" id="title">
+    <header>
+       <h1 class="section-title">Berry hunt!</h1> 
+       <h3>Are your pets bored of apples? Send them off to look for berries!</h3>
+        <h3>Be warned, foraging takes up energy! If your pet gets too hungry, they'll come home emtpy handed!</h3>
+    </header>
+    
+    
+</div>
+
+<div class="container">
+    <div class="row">
+        {% for pet in g.user.pets %}
+        <div class="col-sm" id="pet-card">
+            <h1>{{pet.nickname}}</h1>
+            <img class="poke-img" src="{{pet.pokemon.sprite_url}}">
+            <div class="row">
+                <div class="col">
+                    <h2>Hunger</h2>
+                        <div class="progress">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: {{pet.hunger}}%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                </div>
+            </div>
+     
+                
+            
+            <form>
+                <button formaction="{{ url_for('go_forage', pet_id=pet.id)}}" class="btn btn-primary">Go foraging!</button>
+         
+                <button formaction="{{ url_for('show_pet', pet_id=pet.id)}}" class="btn btn-primary">Take {{pet.nickname}} home</button>
+            </form>
+            
+                
+                
+           
+        </div>
+        {% endfor %} 
+    </div>
+
+    
+    
+</div>
+{% endblock %}

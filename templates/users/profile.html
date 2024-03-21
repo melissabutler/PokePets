@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block title %}{{user.username}}{% endblock %}
+
+{% block content %}
+<!-- Owner View -->
+{% if g.user == user %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+           <h1 class="section-title">Hi {{user.username}}!</h1>
+        <a href="{{ url_for('show_user_details')}}">
+        <button class="btn btn-lg">My info</button>  
+        </a> 
+        </div>
+    </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h1  class="section-title"> My Pets </h1>
+            {% if user.pets|length == 0 %}
+            <h3>You have no pets!</h3>
+            {% endif %}
+           
+        </div>
+    </div>
+    <div class="row justify-content-md-center" id="pet-profile">
+        {% for pet in user.pets %}
+            <div class="col-sm-4">
+                <div id="pet-card">
+                    <a href="{{ url_for('show_pet', pet_id=pet.id) }}">
+                    <img class="poke-img" src="{{pet.pokemon.sprite_url}}">
+                    <h2>{{pet.nickname}} the {{pet.pokemon.name[0]|upper}}{{pet.pokemon.name[1:]}}</h2>
+                    </a>
+                </div>
+                
+            </div> 
+        {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col">
+            <h1  class="section-title">My Inventory</h1>
+            {% if user.berries|length == 0 %}
+            <h3>You have nothing in your inventory! Go foraging to get some berries</h3>
+            {% endif %}
+            
+        </div>
+        <div class="row justify-content-md-center" id="inventory">
+            {% for berry in user.berries %}
+                <div class="col">
+                    <div class="berry-icon">
+                        <img class="berry" src="{{berry.berry.img_url}}">
+                        <h1>{{berry.berry.name[0]|upper}}{{berry.berry.name[1:]}}</h1>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+</div>
+{% endif %}
+
+
+
+<!-- Non Owner View -->
+{% if g.user != user %}
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <h1 class="section-title">{{user.username}}'s Profile</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {% if user.pets|length == 0 %}
+            <h1>{{user.username}} has no pets!</h1>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row">
+        {% for pet in user.pets %}
+        <div class="col-sm-4">
+            <div id="pet-card">
+                <img class="poke-img" src="{{pet.pokemon.sprite_url}}">
+                <h2>{{pet.nickname}} the {{pet.pokemon.name}}</h2>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div> 
+</div>
+{% endif %}
+
+
+{% endblock %}

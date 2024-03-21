@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block title %} {% endblock %}
+
+{% block content %}
+{% if g.user.id == pet.user_id %}
+<div class="container-fluid">
+    <div class="row " id="pet-card">
+        <div class="col">
+            <h1 class="section-title">{{pet.nickname}}</h1>
+            <img src="{{pet.pokemon.sprite_url}}">
+        </div>
+    
+        <div class="col" id="pet-info">
+            <div class="row">
+                <div class="col">
+                    <h2 class="section-title">#{{pet.pokemon.pokedex_id()}} {{pet.pokemon.name[0]|upper}}{{pet.pokemon.name[1:]}}</h2>
+                </div>
+                <div class="col">
+                    <h2 class="type {{pet.pokemon.type}}">{{pet.pokemon.type}}</h2>
+                </div>
+            </div>
+            
+            <div class="row">
+                {% for berry in pet.berrydex %} 
+                    <div class="col berry-card">
+                        {% if type.least_fav_berry_id == berry.id %}
+                        <h3>Least Favorite Berry</h3>
+                        <img src="{{berry.img_url}}">
+                        <h4>{{berry.name[0]|upper}}{{berry.name[1:]}}</h4> 
+                        {% elif type.fav_berry_id == berry.id %}
+                        <h3>Favorite Berry</h3>
+                        <img src="{{berry.img_url}}">
+                        <h4>{{berry.name[0]|upper}}{{berry.name[1:]}}</h4> 
+                        
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+    
+            <div class="row">
+                <div class="pet-stats">
+                <h2>Hunger</h2>
+                <div class="progress">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: {{pet.hunger}}%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            <h2>Happiness</h2>
+                <div class="progress">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: {{pet.happiness}}%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            
+            <div class="pet-buttons">
+            
+                <form>
+                    <button class="btn btn-primary" formaction="{{url_for('feed_pet', pet_id=pet.id)}}" formmethod="POST">Feed an Apple</button>
+                    <button class="btn btn-primary" formaction="{{url_for('play_with_pet', pet_id=pet.id)}}" formmethod="POST">Play with {{pet.nickname}}!</button>
+                    <button class="btn btn-danger" formaction="{{url_for('release_pet_check', pet_id=pet.id)}}" formaction="GET">Release Pet</button>
+            
+                </form>
+            
+            </div>
+            </div>
+            
+        </div>
+        
+        
+    </div>
+</div>
+
+    {% if g.user.berries|length == 0 %}
+    <h1>You don't have any berries!</h1>
+    {% endif %}
+    {% if g.user.berries|length > 0 %}
+<div class="container">
+        <div class="row justify-content-md-center" >
+            {% for item in g.user.berries %}
+            <div class="col-sm" id="inventory-item">
+                <div class="berry-icon">
+                    <h1>{{item.name}}</h1>
+                    <img class="berry" src="{{item.berry.img_url}}">
+                    <form>
+                        <button class="btn btn-primary" formaction="{{url_for('feed_pet_berry', pet_id=pet.id,item_id=item.id)}}" formmethod="POST">Feed berry</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}   
+        </div>
+    </div>
+    {%endif %}
+{% endif %}
+
+{% if g.user.id != pet.user_id %}
+<div id="pet-card">
+    <h1 class="section-title">{{pet.user.username}}'s {{pet.nickname}}</h1>
+    <img src="{{pet.pokemon.sprite_url}}">
+ </div>
+
+{% endif %}
+{% endblock %}

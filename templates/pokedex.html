@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+{% block content %}
+<h1 class="section-title"> Pokedex </h1>
+<h3>Have you met them all?</h3>
+
+<div class="container-fluid" id="pokedex-list">
+    <div class="row justify-content-md-center">
+        {% for poke in pokemon %}
+            <div class="col-3" id="pet-card">
+                {% if poke in g.user.pokedex %}
+                    <h3>#{{poke.pokedex_id()}} {{poke.name[0]|upper}}{{poke.name[1:]}}</h3>
+                    <h3 class="type {{poke.type}}">{{poke.type[0]|upper}}{{poke.type[1:]}}</h3>
+                    <img class="poke-img" src="{{poke.sprite_url}}">
+                {% else %}
+                    <h3>#??? ???????</h3>
+                    <img class="poke-img unknown" src="{{poke.sprite_url}}">
+                {% endif %}
+                        <!-- <h3>#{{poke.pokedex_id()}} {{poke.name[0]|upper}}{{poke.name[1:]}}</h3>
+                        
+                        {% if poke in g.user.pokedex %}
+                            <h3 class="type {{poke.type}}">{{poke.type[0]|upper}}{{poke.type[1:]}}</h3>
+                        {% endif %}
+                    
+                        <img class="poke-img" src="{{poke.sprite_url}}"> -->
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

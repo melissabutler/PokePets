@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="section-title">Are you sure you want to delete your account?</h1>
+<h3>This action is permanent!</h3>
+<form method="POST" id="delete-form">
+    {{form.hidden_tag()}}
+    {% for field in form if field.widget.input_type != 'hidden'%}
+    {% for error in field.errors %}
+            <span class="text-danger">{{ error }}</span>
+          {% endfor %}
+    {{ field(class="btn btn-danger") }}
+    {% endfor %}
+    <button class="btn btn-primary" formmethod="GET" formaction='{{ url_for("show_user_profile", user_id=g.user.id) }}'>Cancel</button>
+
+</form>
+{% endblock %}

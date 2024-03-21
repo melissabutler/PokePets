@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title%} Home {% endblock%}
+{% block wrapper %}
+    <div id="wrapper"></div>
+{% endblock %}
+{% block content %}
+<h1 class="section-title">Welcome to Pokepets!</h1>
+
+<h3><a href="{{ url_for('signup') }}"> New here? Sign up to adopt some pets! </a></h3>
+<!-- <h3><a href="{{ url_for('random_pets')}}"> Meet some pets!</a></h3> -->
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="section-title">Meet some of our user's pets!</h1>
+<div class="container">
+    <div class="row">
+        {% for pet in pets %}
+        <div class="col-3" id="pet-card">
+            <h3>{{pet.user.username}}'s {{pet.nickname}}</h3>
+            <img class="poke-img" src="{{pet.pokemon.sprite_url}}">
+
+        </div>
+        {% endfor %}
+        
+
+        </div>
+    </div>
+</div>
+{% endblock %}
