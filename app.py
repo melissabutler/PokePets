@@ -26,7 +26,7 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', "password")
 
 debug = DebugToolbarExtension(app)
 
-app.app_context().push()
+# app.app_context().push()
 connect_db(app)
 
 
