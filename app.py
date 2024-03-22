@@ -6,7 +6,7 @@ from sqlalchemy.exc import IntegrityError, PendingRollbackError
 
 from flask_debugtoolbar import DebugToolbarExtension
 
-
+from dotenv import load_dotenv
 from models import db, connect_db, User, Pokemon, Pet, Type, Berry, UserBerry
 from forms import UserAddForm, LoginForm, UserEditForm, PetForm, ReleasePet, ForageForm, DeleteUser
 from functions import create_pokemon_db, get_random_ids, create_type_db, create_berry_db, berries, types, roll_dice, forage, play_phrases
@@ -14,11 +14,12 @@ from functions import create_pokemon_db, get_random_ids, create_type_db, create_
 CURR_USER_KEY = "curr_user"
 
 app = Flask(__name__)
+load_dotenv()
 
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = (
-    os.environ.get('DATABASE_URL', 'postgresql://pokepets_user:O6pcdjMPoSFmEbeI4skzqP5nd8ejCggg@dpg-cnu766ljm4es73cog0p0-a/pokepets'))
+    os.environ.get('DATABASE_URL', 'postgresql://elkouyrl:NzWFibF2_F7rJLFFCVs2PqhTcUdzjQs_@raja.db.elephantsql.com/elkouyrl'))
 
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # app.config['SQLALCHEMY_ECHO'] = True
@@ -27,9 +28,18 @@ app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', "password")
 
 debug = DebugToolbarExtension(app)
+
 connect_db(app)
 
+with app.app_context():
+    if len(Berry.query.all()) == 0:
+        create_berry_db(db, berries)
 
+    if len(Type.query.all()) == 0:
+        create_type_db(db, types)
+
+    if len(Pokemon.query.all()) == 0:
+        create_pokemon_db(150, db)
 
 BASE_URL = 'https://pokeapi.co/api/v2/pokemon/'
 
