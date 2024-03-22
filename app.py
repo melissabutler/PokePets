@@ -20,6 +20,7 @@ load_dotenv()
 
 app.config['SQLALCHEMY_DATABASE_URI'] = (
     os.environ.get('DATABASE_URL', 'postgresql://pokepets'))
+
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # app.config['SQLALCHEMY_ECHO'] = True
 
@@ -27,18 +28,9 @@ app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', "password")
 
 debug = DebugToolbarExtension(app)
-
 connect_db(app)
 
-with app.app_context():
-    if len(Berry.query.all()) == 0:
-        create_berry_db(db, berries)
 
-    if len(Type.query.all()) == 0:
-        create_type_db(db, types)
-
-    if len(Pokemon.query.all()) == 0:
-        create_pokemon_db(150, db)
 
 BASE_URL = 'https://pokeapi.co/api/v2/pokemon/'
 
@@ -66,16 +58,15 @@ def do_logout():
 def not_found(e):
     return render_template("404.html")
 
-if len(Type.query.all()) == 0:
-    create_type_db(db, types)
+with app.app_context():
+    if len(Berry.query.all()) == 0:
+        create_berry_db(db, berries)
 
+    if len(Type.query.all()) == 0:
+        create_type_db(db, types)
 
-if len(Berry.query.all()) == 0:
-    create_berry_db(db, berries)
-
-if len(Pokemon.query.all()) == 0:
-    create_pokemon_db(150, db)
-
+    if len(Pokemon.query.all()) == 0:
+        create_pokemon_db(150, db)
 
 
 ############# SETUP ROUTES, login/logout/signup ##########################
