@@ -171,7 +171,7 @@ class Pet(db.Model):
         default=50
     )
 
-    user = db.relationship('User')
+    user = db.relationship('User', overlaps="pets")
     pokemon = db.relationship('Pokemon')
 
     berrydex = db.relationship(
