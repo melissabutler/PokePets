@@ -19,8 +19,7 @@ load_dotenv()
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = (
-    os.environ.get('DATABASE_URL', 'postgresql://elkouyrl:NzWFibF2_F7rJLFFCVs2PqhTcUdzjQs_@raja.db.elephantsql.com/elkouyrl'))
-
+    os.environ.get('DATABASE_URL', 'postgresql://pokepets'))
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # app.config['SQLALCHEMY_ECHO'] = True
 
