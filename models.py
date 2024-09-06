@@ -38,28 +38,6 @@ class Berrydex(db.Model):
     )
 
 
-class UserBerry(db.Model):
-    """Berries owned by user"""
-    __tablename__ = "user_berries"
-
-    id= db.Column(
-        db.Integer,
-        primary_key=True,
-        autoincrement=True
-    )
-    user_id = db.Column(
-        db.Integer,
-        db.ForeignKey('users.id', ondelete="CASCADE"),
-        nullable=False
-    )
-    berry_id = db.Column(
-        db.Integer,
-        db.ForeignKey('berries.id'),
-        nullable=False
-    )
-    
-    user = db.relationship('User')
-    berry = db.relationship('Berry')
 
 
 class User(db.Model):
@@ -132,6 +110,29 @@ class User(db.Model):
             
         return False
     
+class UserBerry(db.Model):
+    """Berries owned by user"""
+    __tablename__ = "user_berries"
+
+    id= db.Column(
+        db.Integer,
+        primary_key=True,
+        autoincrement=True
+    )
+    user_id = db.Column(
+        db.Integer,
+        db.ForeignKey('users.id', ondelete="CASCADE"),
+        nullable=False
+    )
+    berry_id = db.Column(
+        db.Integer,
+        db.ForeignKey('berries.id'),
+        nullable=False
+    )
+    
+    user = db.relationship('User')
+    berry = db.relationship('Berry')
+
 
 class Pet(db.Model):
     """Pet"""
